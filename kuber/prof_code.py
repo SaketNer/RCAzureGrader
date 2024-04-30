@@ -12,7 +12,7 @@ from pinecone import Pinecone
 student_ans = pd.DataFrame(columns=['student_id', 'question_no', 'answer', 'marks', 'reason'])
 ideal_ans = pd.DataFrame(columns=['question_no', 'answer'])
 # Rest of the code
-paper_number = input("Please enter the paper number: ")
+# paper_number = input("Please enter the paper number: ")
 #paper_number = 1
 connection_string = 'Driver={ODBC Driver 18 for SQL Server};Server=tcp:rc-cloud-server.database.windows.net,1433;Database=RC_cloud_database;UID=Saket;PWD=RC@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
 
@@ -94,5 +94,5 @@ def get_student_ans(paper_no):
         print(ideal_ans)
         conn.commit()
 
-get_ideal_ans(paper_number)
-get_student_ans(paper_number)
+# get_ideal_ans(paper_number)
+# get_student_ans(paper_number)
