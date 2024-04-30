@@ -60,7 +60,7 @@ def upload_marks(paper_no,student_id,quesntion_no,marks,reason):
 
 def check_ans(ideal_answer, student_answer):
     context = get_context(ideal_answer)
-    text = f"You are a highly experienced professor in the field of computer science, tasked with evaluating a student's answer to a descriptive question. Your goal is to provide a fair and accurate assessment of the student's response, based on the ideal answer and marking scheme provided. You may also refer to the context provided by the textbook, but please keep in mind that it may not always be accurate. The student's answer is as follows: {student_answer} The ideal answer is as follows: {ideal_answer} The context provided by the textbook is as follows: {context} The marking scheme is as follows: Total marks that can be awarded are 10. 2 marks are awarded for each point in the ideal answer. If a point is partially written, then award 1 mark for that point. If a point which is not mentioned in the ideal answer and context is written, then do not give marks for that point. Please provide a detailed explanation of how you arrived at your assessment, including the specific points in the student's answer that earned marks and any points that were not awarded. Your response should be in the following format: Marks: [number of marks awarded], Reasons: [detailed explanation of how marks were awarded]."
+    text = f"You are a highly experienced professor in the field of computer science, tasked with evaluating a student's answer to a descriptive question. Your goal is to provide a fair and accurate assessment of the student's response, based on the ideal answer and marking scheme provided. You may also refer to the context provided by the textbook, but please keep in mind that it may not always be accurate. The student's answer is as follows: {student_answer} The ideal answer is as follows: {ideal_answer} The context provided by the textbook is as follows: {context} The marking scheme is as follows: Total marks that can be awarded are 10. 2 marks are awarded for each point in the ideal answer. If a point is partially written, then award 1 mark for that point. If a point which is not mentioned in the ideal answer and context is written, then do not give marks for that point. Please provide a detailed explanation of how you arrived at your assessment, including the specific points in the student's answer that earned marks and any points that were not awarded. Your response should be in the following format: Marks: [number of marks awarded], Reasons: [detailed explanation of how marks were awarded].Ensure there is a comma imediately after the marks value."
     #print(text)
     client = OpenAI(api_key="sk-proj-W0lHK8EgUiZY0QxMtYc8T3BlbkFJFDOiSZnoED53RX4pf14N")
 
@@ -86,11 +86,12 @@ def get_student_ans(paper_no):
 
         for row in cursor.fetchall():
             #print(row)
-            
-            prof_ans = ideal_ans.loc[ideal_ans['question_no']==2].iloc[0]['answer']
+            q_no = row.question_no
+            prof_ans = ideal_ans.loc[ideal_ans['question_no']==q_no].iloc[0]['answer']
             marks,reason = check_ans(prof_ans, row.answer)
             upload_marks(paper_no,row.student_id,row.question_no,marks,reason)
             student_ans.loc[len(student_ans.index)] = [row.student_id,row.question_no, row.answer,marks,reason ]
+            print("********start**********\n",prof_ans,'\n\n',row.answer,"\n******************\n")
         print(ideal_ans)
         conn.commit()
 

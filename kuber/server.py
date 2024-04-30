@@ -17,4 +17,4 @@ def process_answers():
     return f"Processing Finished."
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(host='0.0.0.0', port=8080)
