@@ -18,5 +18,5 @@ Other codes were used in our experimental stage. Create_table.py is used to crea
 
 ## In detail
 
-We have explained our project in detail in this ppt. You can view it on this [link](https://www.canva.com/design/DAGFIO2O-dY/yHgzrXKPLlXAWwFP-F0eDA/edit?utm_content=DAGFIO2O-dY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+We have explained our project in detail in this ppt. You can view it on this [link](https://www.canva.com/design/DAGFIO2O-dY/yHgzrXKPLlXAWwFP-F0eDA/edit?utm_content=DAGFIO2O-dY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) or the "GenAI_Presentation.pdf"
 
