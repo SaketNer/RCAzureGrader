@@ -14,6 +14,6 @@ The kubernetes folder has the application code that is hosted on kubernetes. It 
 This folder has the code that the professor will run. It will call the kubernetes server which will then grade all the submissions for the exam paper that the professor has requested for and download the final marks of all the children.
 
 - Other codes
-Other codes were used in our experimental stage. Create_table.py is used to create tables in our SQL database. You can also create them from the Azure portal.
+Other codes were used in our experimental stage. Create_table.py is used to create tables in our SQL database. You can also create them from the Azure portal. Upload_answers.py is used to upload answers to the sql database.
 
 

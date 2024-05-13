@@ -21,13 +21,9 @@ def get_conn():
 
 
 # current string
-# Driver={ODBC Driver 18 for SQL Server};Server=tcp:rc-cloud-server.database.windows.net,1433;Database=RC_cloud_database;UID=Saket;PWD=RC@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30
 print(os.environ["AZURE_SQL_CONNECTIONSTRING"])
 connection_string = os.environ["AZURE_SQL_CONNECTIONSTRING"]
 
-# export AZURE_SQL_CONNECTIONSTRING='Driver={ODBC Driver 18 for SQL Server};Server=tcp:rc-cloud-server.database.windows.net,1433;Database=RC_cloud_database;UID=Saket;PWD=RC@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
-# connection_string = "Server=tcp:rc-cloud-server.database.windows.net,1433;Initial Catalog=RC_cloud_database;Persist Security Info=False;User ID=Saket;Password=RC@12345678;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30"
-# connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:rc-cloud-server.database.windows.net,1433;Database=RC_cloud_database;Uid=Saket;Pwd=RC@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30"
 conn = get_conn()
 cursor = conn.cursor()
 app = FastAPI()

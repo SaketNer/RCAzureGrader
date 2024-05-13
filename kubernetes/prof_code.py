@@ -14,15 +14,15 @@ ideal_ans = pd.DataFrame(columns=['question_no', 'answer'])
 # Rest of the code
 # paper_number = input("Please enter the paper number: ")
 #paper_number = 1
-connection_string = 'Driver={ODBC Driver 18 for SQL Server};Server=tcp:rc-cloud-server.database.windows.net,1433;Database=RC_cloud_database;UID=Saket;PWD=RC@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
+connection_string = 'YOUR_SQL_CONNECTION_STRING'
 
 pc = Pinecone(
-    api_key="8f05e211-66e3-43fc-a2fe-ca6081ecf797"
+    api_key="API_KEY",
 )
-embeddings = OpenAIEmbeddings(openai_api_key="sk-proj-W0lHK8EgUiZY0QxMtYc8T3BlbkFJFDOiSZnoED53RX4pf14N")
-vectorstore = PineconeVectorStore(pinecone_api_key="8f05e211-66e3-43fc-a2fe-ca6081ecf797",index_name='azure-openai', embedding=embeddings,namespace="ns2")
+embeddings = OpenAIEmbeddings(openai_api_key="OPENAI_API_KEY")
+vectorstore = PineconeVectorStore(pinecone_api_key="PINECONE_API_KEY",index_name='azure-openai', embedding=embeddings,namespace="ns2")
 
-client = OpenAI(api_key="sk-proj-W0lHK8EgUiZY0QxMtYc8T3BlbkFJFDOiSZnoED53RX4pf14N")
+client = OpenAI(api_key="OPENAI_API_KEY")
 
 def get_context(ideal_answer):
     query_summary = client.chat.completions.create(
@@ -62,7 +62,7 @@ def check_ans(ideal_answer, student_answer):
     context = get_context(ideal_answer)
     text = f"You are a highly experienced professor in the field of computer science, tasked with evaluating a student's answer to a descriptive question. Your goal is to provide a fair and accurate assessment of the student's response, based on the ideal answer and marking scheme provided. You may also refer to the context provided by the textbook, but please keep in mind that it may not always be accurate. The student's answer is as follows: {student_answer} The ideal answer is as follows: {ideal_answer} The context provided by the textbook is as follows: {context} The marking scheme is as follows: Total marks that can be awarded are 10. 2 marks are awarded for each point in the ideal answer. If a point is partially written, then award 1 mark for that point. If a point which is not mentioned in the ideal answer and context is written, then do not give marks for that point. Please provide a detailed explanation of how you arrived at your assessment, including the specific points in the student's answer that earned marks and any points that were not awarded. Your response should be in the following format: Marks: [number of marks awarded], Reasons: [detailed explanation of how marks were awarded].Ensure there is a comma imediately after the marks value."
     #print(text)
-    client = OpenAI(api_key="sk-proj-W0lHK8EgUiZY0QxMtYc8T3BlbkFJFDOiSZnoED53RX4pf14N")
+    client = OpenAI(api_key="OPENAI_API_KEY")
 
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",

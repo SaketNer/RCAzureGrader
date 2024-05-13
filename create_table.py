@@ -3,8 +3,7 @@ import os
 import pyodbc
 
 
-connection_string = 'Driver={ODBC Driver 18 for SQL Server};Server=tcp:rc-cloud-server.database.windows.net,1433;Database=RC_cloud_database;UID=Saket;PWD=RC@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30'
-
+connection_string = 'YOUR_SQL_CONNECTION_STRING'
 def get_conn():
     conn = pyodbc.connect(connection_string)
     return conn
