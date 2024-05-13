@@ -16,4 +16,7 @@ This folder has the code that the professor will run. It will call the kubernete
 - Other codes
 Other codes were used in our experimental stage. Create_table.py is used to create tables in our SQL database. You can also create them from the Azure portal. Upload_answers.py is used to upload answers to the sql database.
 
+## In detail
+
+We have explained our project in detail in this ppt. You can view it on this [link](https://www.canva.com/design/DAGFIO2O-dY/yHgzrXKPLlXAWwFP-F0eDA/edit?utm_content=DAGFIO2O-dY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
